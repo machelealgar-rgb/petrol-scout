@@ -13,5 +13,5 @@ export async function getEstaciones(
     params: { entidadId: stateId, municipioId },
     timeout: 15_000,
   });
-  return EstacionesResponseSchema.parse(response.data);
+  return EstacionesResponseSchema.parse(response.data).Value;
 }

@@ -22,5 +22,5 @@ export async function toXlsx(stations: EstacionPrecio[]): Promise<Buffer> {
 
   sheet.columns.forEach((col) => { col.width = 20; });
 
-  return workbook.xlsx.writeBuffer() as Promise<Buffer>;
+  return workbook.xlsx.writeBuffer() as unknown as Promise<Buffer>;
 }

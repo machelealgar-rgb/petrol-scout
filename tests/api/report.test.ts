@@ -20,7 +20,9 @@ describe('getEstaciones', () => {
   beforeEach(() => { vi.resetAllMocks(); });
 
   it('returns parsed stations for state + municipality', async () => {
-    mockedAxios.get.mockResolvedValueOnce({ data: [mockStation] });
+    mockedAxios.get.mockResolvedValueOnce({
+      data: { Success: true, Errors: null, Value: [mockStation] },
+    });
 
     const result = await getEstaciones(15, '001');
 
@@ -33,7 +35,7 @@ describe('getEstaciones', () => {
   });
 
   it('returns empty array for municipality with no stations', async () => {
-    mockedAxios.get.mockResolvedValueOnce({ data: [] });
+    mockedAxios.get.mockResolvedValueOnce({ data: { Success: true, Errors: null, Value: [] } });
     expect(await getEstaciones(15, '099')).toEqual([]);
   });
 

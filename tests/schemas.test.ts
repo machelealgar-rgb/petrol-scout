@@ -54,7 +54,8 @@ describe('EstacionPrecioSchema', () => {
 });
 
 describe('EstacionesResponseSchema', () => {
-  it('parses empty array', () => {
-    expect(EstacionesResponseSchema.parse([])).toEqual([]);
+  it('parses wrapped response with empty Value', () => {
+    const result = EstacionesResponseSchema.parse({ Success: true, Errors: null, Value: [] });
+    expect(result.Value).toEqual([]);
   });
 });

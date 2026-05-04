@@ -15,10 +15,16 @@ export const EstacionPrecioSchema = z.object({
   SubProducto: z.string(),
   PrecioVigente: z.number().nullable(),
   EntidadFederativaId: z.number().int(),
-  MunicipioId: z.string(),
+  MunicipioId: z.union([z.string(), z.number()]).transform(String),
 });
 
-export const EstacionesResponseSchema = z.array(EstacionPrecioSchema);
+const ReporteApiResponseSchema = z.object({
+  Success: z.boolean(),
+  Errors: z.unknown().nullable(),
+  Value: z.array(EstacionPrecioSchema),
+});
+
+export const EstacionesResponseSchema = ReporteApiResponseSchema;
 
 export type Municipio = z.infer<typeof MunicipioSchema>;
 export type EstacionPrecio = z.infer<typeof EstacionPrecioSchema>;
