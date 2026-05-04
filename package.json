@@ -1,9 +1,10 @@
 {
-  "name": "gas-prices-cli",
+  "name": "petrol-scout",
+  "description": "Scout gas station prices across Mexican states via CNE government APIs",
   "version": "1.0.0",
   "type": "module",
   "bin": {
-    "gas-prices": "./dist/index.js"
+    "petrol-scout": "./dist/index.js"
   },
   "scripts": {
     "build": "tsc",

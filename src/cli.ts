@@ -10,8 +10,8 @@ export function buildCli(): Command {
   const program = new Command();
 
   program
-    .name('gas-prices')
-    .description('Fetch Mexican gas station prices from CNE government APIs')
+    .name('petrol-scout')
+    .description('Scout gas station prices across Mexican states via CNE government APIs')
     .version('1.0.0');
 
   program

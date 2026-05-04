@@ -8,7 +8,7 @@ const HEADERS: (keyof EstacionPrecio)[] = [
 
 export async function toXlsx(stations: EstacionPrecio[]): Promise<Buffer> {
   const workbook = new ExcelJS.Workbook();
-  workbook.creator = 'gas-prices-cli';
+  workbook.creator = 'petrol-scout';
   workbook.created = new Date();
 
   const sheet = workbook.addWorksheet('Precios');
